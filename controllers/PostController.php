@@ -7,7 +7,8 @@ class PostController{
     public function acao($rotas){
         switch($rotas){
             case "posts":
-                $this->viewPosts();
+                // $this->viewPosts();
+                $this->listarPosts();
             break;
             // Dentro do case é o que o usuário digitar na url
             case "formulario-post":
@@ -36,15 +37,25 @@ class PostController{
         $caminhoImagem = "views/img/$nomeArquivo";
         
         move_uploaded_file($linkTemp, $caminhoImagem);
-
+        // Posso criar esse objeto logo no início da função. O importante é criá-lo antes de criar fazer a função com ele.
         $post = new Post();
         $resultado = $post->criarPost($descricao,$caminhoImagem);
 
+        // Verificando se o resultado é verdadeiro
         if($resultado){
             // Redirecionando o usuário para a página posts somente se der certo o cadastro do post. Estamos usando rotas no caminho do location, por isso não preciso digitar views no caminho.
             header('Location:/fakeinstagram/posts');
+        }else{
+            echo "Cadastro não deu certo";
         }
 
+    }
+
+    private function listarPosts(){
+        $post = new Post();
+        $listaPosts = $post->listarPosts();
+        $_REQUEST['posts'] = $listaPosts;
+        $this->viewPosts();
     }
 
 }
