@@ -20,7 +20,7 @@
     <main class="board">
     <?php foreach($posts as $post):?>
         <div class="card mt-5">
-            <img id="cardimg" src="<?php echo $post->imagem;?>" alt="Card image cap">
+            <img id="cardimg" src="<?php echo $post->img;?>" alt="Card image cap">
             <div class="card-body">
                 <p class="card-text"><?php echo $post->descricao;?></p>
             </div>

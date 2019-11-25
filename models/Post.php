@@ -8,7 +8,7 @@ class Post extends Conexao{
         // Para acessar o método de uma classe pai, é preciso usar o parent::
         // A variável db é quem armazena as informações da conexão
         $db = parent::criarConexao();
-        $query = $db->prepare("INSERT INTO posts (descricao,imagem) values(?,?)");
+        $query = $db->prepare("INSERT INTO posts (descricao,img) values(?,?)");
         return $query->execute([$descricao,$imagem]);
     }
 

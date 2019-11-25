@@ -55,3 +55,8 @@ header {
 #cardimg {
     width: 100%;
  }
+
+ .titulo-cadastro-usuario{
+     font-size: 1rem;
+     color: darkgrey;
+ }

@@ -19,6 +19,12 @@ switch($rotas){
         $controller = new PostController();
         $controller->acao($rotas);
     break;
+    case "cadastrar-usuario":
+        include('controllers/UserController.php');
+        // Criando objeto UserController
+        $controller = new UserController();
+        $controller->acao($rotas);
+    break;
 }
 
 

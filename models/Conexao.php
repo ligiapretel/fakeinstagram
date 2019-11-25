@@ -3,7 +3,7 @@
 // Essa classe apenas retorna a conexão para quem quiser usar. Ela não faz query, nem nada mais.
 class Conexao{
     // Os atributos ficam privados, pois já vamos deixar a conexão gerada para ser usada em outros lugares
-    private $host = 'mysql:host=localhost;dbname=instagram;port=3307';
+    private $host = 'mysql:host=localhost;dbname=instagram;port=3306';
     private $user = 'root';
     private $password = '';
 
