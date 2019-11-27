@@ -6,13 +6,23 @@ class UserController{
 
     public function acao($rotas){
         switch($rotas){
+            case "formulario-usuario":
+                // Executando a função que exibe o formulário
+                $this->viewFormularioUsuario();
+            break;
             case "cadastrar-usuario":
                 // Quando o usuário digita cadastrar-usuario na url, vou direcioná-lo para a função que cadastra o usuário
-                $this->criarUsuario();;
+                $this->cadastrarUsuario();
             break;
         }
     }
 
+    // Criando uma função que exibe o formulário    
+    private function viewFormularioUsuario(){
+        include('views/newUser.php');
+    } 
+
+    // Criando uma função que cadastra o usuario 
     private function cadastrarUsuario(){
         // Criando objeto user
         $user = new User();
@@ -26,7 +36,7 @@ class UserController{
         $linkTemp = $_FILES['img-perfil']['tmp_name'];
         $caminhoImagemPerfil = "views/img/users/$nomeArquivo";
         
-        move_uploaded_file($linkTemp, $caminhoImagem);
+        move_uploaded_file($linkTemp, $caminhoImagemPerfil);
         
         // Fazendo objeto acessar a função que cadastra o usuário no BD (função criada na camada model)
         $resultado = $user->criarUsuario($email,$nome,$apelido,$password,$caminhoImagemPerfil);

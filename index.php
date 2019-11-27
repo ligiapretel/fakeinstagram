@@ -19,10 +19,34 @@ switch($rotas){
         $controller = new PostController();
         $controller->acao($rotas);
     break;
+    case "formulario-usuario":
+        include('controllers/UserController.php');
+        // Criando objeto UserController
+        $controller = new UserController();
+        $controller->acao($rotas);
+    break;
     case "cadastrar-usuario":
         include('controllers/UserController.php');
         // Criando objeto UserController
         $controller = new UserController();
+        $controller->acao($rotas);
+    break;
+    case "login":
+        include('controllers/LoginController.php');
+        // Criando objeto LoginController
+        $controller = new LoginController();
+        $controller->acao($rotas);
+    break;
+    case "autenticar-login":
+        include('controllers/LoginController.php');
+        // Criando objeto LoginController
+        $controller = new LoginController();
+        $controller->acao($rotas);
+    break;
+    case "logout":
+        include('controllers/LoginController.php');
+        // Criando objeto LoginController
+        $controller = new LoginController();
         $controller->acao($rotas);
     break;
 }

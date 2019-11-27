@@ -20,6 +20,7 @@
     <main class="board">
     <?php foreach($posts as $post):?>
         <div class="card mt-5">
+            <p class="card-text"><?php echo "Aqui vai aparecer o nome do usuário";?></p>
             <img id="cardimg" src="<?php echo $post->img;?>" alt="Card image cap">
             <div class="card-body">
                 <p class="card-text"><?php echo $post->descricao;?></p>

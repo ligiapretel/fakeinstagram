@@ -38,8 +38,11 @@ class PostController{
         
         move_uploaded_file($linkTemp, $caminhoImagem);
         // Posso criar esse objeto logo no início da função. O importante é criá-lo antes de criar fazer a função com ele.
+        session_start();
+        $idUsuarioLogado = $_SESSION["idUsuarioLogado"];
+
         $post = new Post();
-        $resultado = $post->criarPost($descricao,$caminhoImagem);
+        $resultado = $post->criarPost($descricao,$caminhoImagem,$idUsuarioLogado);
 
         // Verificando se o resultado é verdadeiro
         if($resultado){

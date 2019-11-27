@@ -11,7 +11,6 @@ class User extends Conexao{
         $db = parent::criarConexao();
         // Preparando query para inserir na tabela usuarios do BD - dentro dos () estão os nomes das colunas do BD
         $query = $db->prepare("INSERT INTO usuarios (email,nome_completo,nome_usuario,senha,foto) values(?,?,?,?,?)");
-        // ATENÇÃO!!!! Checar qual nome dar para a variável da imagem aqui. Estou usando o mesmo nome que coloquei no UserController, do que está vindo via POST.
         return $query->execute([$email,$nome,$apelido,$password,$caminhoImagemPerfil]);
     }
 
