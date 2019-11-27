@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    // session_start();
     // verificando se o usuário logou. Se existir nomeUsuarioLogado, é true; se nomeUsuarioLogado[posição zero do array, que é a posição que armazena o nomeUsuarioLogado] for vazia, é falso.
     $nomeUsuarioLogado = isset($_SESSION["nomeUsuarioLogado"])? $_SESSION["nomeUsuarioLogado"][0]:[];
     // print_r($nomeUsuarioLogado);

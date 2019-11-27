@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include_once("models/Post.php");
 
 class PostController{
@@ -31,6 +33,9 @@ class PostController{
     }
 
     private function cadastrarPost(){
+        
+        $post = new Post();
+
         $descricao = $_POST['descricao'];
         $nomeArquivo = $_FILES['img']['name'];
         $linkTemp = $_FILES['img']['tmp_name'];
@@ -38,10 +43,12 @@ class PostController{
         
         move_uploaded_file($linkTemp, $caminhoImagem);
         // Posso criar esse objeto logo no início da função. O importante é criá-lo antes de criar fazer a função com ele.
-        session_start();
-        $idUsuarioLogado = $_SESSION["idUsuarioLogado"];
+        $idUsuarioLogado = $_SESSION["idUsuarioLogado"][0];
 
-        $post = new Post();
+        // echo "<pre>";
+        // var_dump($idUsuarioLogado);
+        // exit;
+
         $resultado = $post->criarPost($descricao,$caminhoImagem,$idUsuarioLogado);
 
         // Verificando se o resultado é verdadeiro

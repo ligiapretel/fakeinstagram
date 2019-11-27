@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include_once("models/Login.php");
 
 class LoginController{
@@ -28,6 +30,8 @@ class LoginController{
 
      // Criando uma função para autenticar o login   
      private function autenticarLogin(){
+
+
         // Criando objeto login
         $login = new Login();
 
@@ -43,9 +47,7 @@ class LoginController{
         // exit;
 
         // Verificar se o dado enviado pelo formulário é igual ao dado armazenado no banco
-        if($resultado){
-            // echo "Login deu certo =)";
-            session_start();
+        if($resultado){  
             // Criando uma associacao usuarioLogado
             $_SESSION["nomeUsuarioLogado"] = [$resultado[0]["nome_usuario"]];
             // Criando uma associação para o id do usuário
