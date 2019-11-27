@@ -1,5 +1,5 @@
 <?php
-
+    //Recebendo informações que estão no request do PostController
     $posts = $_REQUEST['posts'];
 
 ?>
@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Instagram</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="views/css/styles.css">
 </head>
@@ -20,14 +20,16 @@
     <main class="board">
     <?php foreach($posts as $post):?>
         <div class="card mt-5">
-            <p class="card-text"><?php echo "Aqui vai aparecer o nome do usuário";?></p>
+            <div class="row">
+                <img id="img-perfil" src="<?php echo $post->foto;?>" alt="Foto usuário">   
+                <p class="card-text"><?php echo $post->nome_usuario;?></p>
+            </div>
             <img id="cardimg" src="<?php echo $post->img;?>" alt="Card image cap">
             <div class="card-body">
                 <p class="card-text"><?php echo $post->descricao;?></p>
             </div>
         </div>
     <?php endforeach; ?>
-        <!-- <a class="float-button" href="/instagran/formulario-post">&#10010;</a> -->
         <a class="float-button" href="/fakeinstagram/formulario-post">&#10010;</a>
     </main>
     

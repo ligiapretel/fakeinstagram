@@ -14,7 +14,7 @@ class Post extends Conexao{
 
     public function listarPosts(){
         $db = parent::criarConexao();
-        $query = $db->query('SELECT * from posts ORDER BY id DESC');
+        $query = $db->query('SELECT posts.img, posts.descricao, usuarios.nome_usuario, usuarios.foto from posts LEFT JOIN usuarios ON posts.id_usuario = usuarios.id ORDER BY posts.id DESC');
         // FETCH_OBJ - retorna uma lista de objetos. Transforma cada coluna do BD em um atributo da classe. Muda a forma de acessar esse objeto (pode ser com foreach, mas em vez de colocar [] para acessar a etiqueta, uso a sintaxe da classe, com seta. Ex.: $post->descricao)
         $resultado = $query->fetchAll(PDO::FETCH_OBJ);
         return $resultado;
