@@ -4,12 +4,12 @@ include_once('Conexao.php');
 
 class Post extends Conexao{
 
-    public function criarPost($descricao,$imagem,$idUsuarioLogado){
+    public function criarPost($descricao,$imagem,$idUsuario){
         // Para acessar o método de uma classe pai, é preciso usar o parent::
         // A variável db é quem armazena as informações da conexão
         $db = parent::criarConexao();
         $query = $db->prepare("INSERT INTO posts (descricao,img,id_usuario) values(?,?,?)");
-        return $query->execute([$descricao,$imagem,$idUsuarioLogado]);
+        return $query->execute([$descricao,$imagem,$idUsuario]);
     }
 
     public function listarPosts(){

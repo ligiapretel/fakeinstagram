@@ -1,7 +1,6 @@
 <?php
     //Recebendo informações que estão no request do PostController
     $posts = $_REQUEST['posts'];
-
 ?>
 
 <!DOCTYPE html>
@@ -18,11 +17,12 @@
     
     <?php include "views/includes/header.php"; ?>
     <main class="board">
+    
     <?php foreach($posts as $post):?>
         <div class="card mt-5">
-            <div class="row">
-                <img id="img-perfil" src="<?php echo $post->foto;?>" alt="Foto usuário">   
-                <p class="card-text"><?php echo $post->nome_usuario;?></p>
+            <div class="row align-items-center">
+                <img id="img-profile" src="<?php echo $post->foto;?>" alt="Foto usuário">   
+                <p id="nickname" class="card-text"><?php echo $post->nome_usuario;?></p>
             </div>
             <img id="cardimg" src="<?php echo $post->img;?>" alt="Card image cap">
             <div class="card-body">
@@ -32,9 +32,6 @@
     <?php endforeach; ?>
         <a class="float-button" href="/fakeinstagram/formulario-post">&#10010;</a>
     </main>
-    
-
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
