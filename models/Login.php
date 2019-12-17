@@ -16,7 +16,7 @@ class Login extends Conexao{
         // return $query->execute([:email=>$email,:senha=>$password]);
 
         // Verificando se a query deu certo. Se ela deu certo, ou seja, for diferente de falso, eu transformo a query em fetch_assoc. Como é a $query que guarda o resultado do execute, o fetchAll precisa ser nela.
-        if($query != false){
+        if($query){
             $resultadoLogin = $query->fetchAll(PDO::FETCH_ASSOC);
         }
 

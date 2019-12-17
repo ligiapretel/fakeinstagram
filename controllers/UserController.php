@@ -2,7 +2,6 @@
 
 session_start();
 
-
 include_once("models/User.php");
 
 class UserController{
@@ -46,12 +45,8 @@ class UserController{
 
         // Verificando se o resultado é verdadeiro
         if($resultado){
-
-            // Criando uma associacao para o nome do usuário logado
-            $_SESSION["nomeUsuarioLogado"] = [$_POST['apelido']];
-
+            
             // Redirecionando o usuário para a página posts somente se der certo o cadastro do post. Estamos usando rotas no caminho do location, por isso não preciso digitar views no caminho.
-
             header('Location:/fakeinstagram/posts');
         }else{
             echo "Cadastro de usuário não deu certo";
